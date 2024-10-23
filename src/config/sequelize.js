@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+require('dotenv').config();
 
 // Crear una nueva instancia de Sequelize
 const sequelize = new Sequelize(
