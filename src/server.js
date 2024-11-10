@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const taskRoutes = require('./routes/taskRoutes');
+const emailRoutes = require('./routes/emailRoutes');
 require('dotenv').config();
 
 const Task = require('./models/taskModel');
@@ -9,6 +10,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use('/api', taskRoutes);
+app.use('/api', emailRoutes);
 
 Task.sync({ alter: true })
     .then(() => {
