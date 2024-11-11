@@ -1,8 +1,10 @@
 const userService = require('../services/userService');
+const sendWelcomeEmail = require('../services/sendEmailService');
 
 exports.register = async (req, res) => {
   try {
     const user = await userService.register(req.body);
+    await sendWelcomeEmail(user.email)
     res.status(201).json({ message: 'Usuario registrado con éxito', user });
   } catch (error) {
     res.status(400).json({ message: error.message });
