@@ -28,8 +28,7 @@ describe('***** Test del generador de tareas *****', () => {
         expect(tarea1.description).not.to.eql(tarea2.description);
         expect(tarea1.estimatedTime).not.to.eql(tarea2.estimatedTime);
         
-        // Permitir que scrumSection sea igual en este caso
-        expect(tarea1.scrumSection).not.to.eql(tarea2.scrumSection); // O puedes eliminar esta línea si no es un campo clave
+        expect(tarea1.scrumSection).not.to.eql(tarea2.scrumSection);
         expect(tarea1.priority).not.to.eql(tarea2.priority);
     });
 
