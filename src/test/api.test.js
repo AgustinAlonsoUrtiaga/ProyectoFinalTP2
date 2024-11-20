@@ -2,14 +2,16 @@ const { expect } = require('chai');
 const supertest = require('supertest');
 const generador = require('./generador/task.js');
 
+require('dotenv').config();
+
 const request = supertest('http://127.0.0.1:3000');
 
 let token = '';
 
 const login = async () => {
   const loginData = {
-    email: 'simonleybo@gmail.com',
-    password: '1234'
+    email: process.env.TEST_EMAIL,
+    password: process.env.TEST_PASSWORD
   };
 
   const response = await request.post('/api/users/login').send(loginData);
